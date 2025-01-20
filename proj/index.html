@@ -6,6 +6,39 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <script>
+        const animationFrames = [
+    "_____",
+    "____G",
+    "___G_",
+    "__G__",
+    "_G___",
+    "G____",
+    "G___i",
+    "G__i_",
+    "G_i__",
+    "Gi___",
+    "Gi__t",
+    "Gi_t_",
+    "Git__",
+    "Git_?",
+    "Git?!",
+    "Git?!",
+    "Git?!"
+];
+
+// Funktion, die durch das Array iteriert und den Titel aktualisiert
+async function animateTitle(frames) {
+    while (true) {
+        for (const frame of frames) {
+            document.title = frame;
+            await new Promise(resolve => setTimeout(resolve, 200));
+        }
+    }
+}
+
+// Animation starten
+animateTitle(animationFrames);
+    </script>
 </body>
 </html>

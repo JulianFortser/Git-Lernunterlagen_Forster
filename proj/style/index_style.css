@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --background: #010104;
+  --accent: #0600c2;
+  --primary: #3a31d8;
+  --secondary: #020024;
+  --text: #ffff;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background-color: white;
+}
+
+.page {
+  height: 100%;
+  width: 100%;
+  background-color: var(--text);
+}/*# sourceMappingURL=index_style.css.map */

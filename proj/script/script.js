@@ -1,24 +1,23 @@
-let answersD = [
-    /*1*/ 
-    /*2*/
-    /*3*/
-    /*4*/
-]
-let questionsD = [
-    /*1*/   
-    /*2*/
-    /*3*/
-    /*4*/
-]
-let answersE = [
-    /*1*/ { A: "git init",B: "git start", C: "", D: ""},
-    /*2*/ { A: "",B: "", C: "", D: ""},
-    /*3*/ { A: "",B: "", C: "", D: ""},
-    /*4*/ { A: "",B: "", C: "", D: ""}
-]
-let questionsE = [
-    /*1*/ "What command would you use to create a new Git repository in your current directory?",
-    /*2*/ "",
-    /*3*/ "",
-    /*4*/ ""
-]
+//Check if javaScript Works
+console.log("Js works");
+
+
+// Fetch data from the JSON file and use it also as Main
+fetch('./data/questionAndAnswerEnglish.json')
+    .then(response => response.json())  // Parse the response as JSON
+    .then(data => {
+        // Handle the data
+        const quizData = data.quiz;
+        
+
+        function getNextRandomQuestion(){
+            return quizData[1];
+        }
+
+
+        //Main
+        console.log(getNextRandomQuestion());
+    })
+    .catch(error => {
+    console.error("Error loading the JSON file:", error);
+    });

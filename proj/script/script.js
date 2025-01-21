@@ -3,25 +3,52 @@ console.log("Js works");
 
 
 // Fetch data from the JSON file and use it also as Main
-fetch('./data/questionAndAnswerEnglish.json')
-    .then(response => response.json())  // Parse the response as JSON
-    .then(data => {
-        // Handle the data
-        const quizData = data.quiz;
-        
+function newQuiz(){
+    return fetch('./data/questionAndAnswerEnglish.json')
+        .then(response => response.json())  // Parse the response as JSON
+        .then(data => {
 
-        function getNextRandomQuestion(){
-            return quizData[1];
-        }
+            // <---------- Variables ----------->
+            
+                //Variables to change
+                let numberOfQuestionsReturning = 10;
+                let numberOfQuestionsInJson = data.quiz.length;
 
+                //Variables NOT to change
+                const quizData = data.quiz;
+                let quizDataUsed = [];
+                let quizAllQuestions = [];
 
-        //Main
-        console.log(getNextRandomQuestion());
-    })
-    .catch(error => {
-    console.error("Error loading the JSON file:", error);
+            // <---------- functions ----------->
+            
+                //getting a random number between 0 - 30 and each number can only be returned once
+                function getRandomNumber(){
+                    let randomNumber = Math.floor(Math.random() * numberOfQuestionsInJson);
+                    while(quizDataUsed.includes(randomNumber)){
+                        randomNumber = Math.floor(Math.random() * numberOfQuestionsInJson);
+                    }
+                    quizDataUsed.push(randomNumber);
+                    return randomNumber;
+                }
+
+            // <---------- code ----------->
+
+                //getting 10 (questions + options + anwsers) out of data and pushing them into the object "quizAllQuestions"
+                for(let i = 0; i < numberOfQuestionsReturning; i++){
+                    quizAllQuestions.push(quizData[getRandomNumber()]);
+                }
+
+                //returning "quizAllQuestions" | it contains 10 questions + options + answers
+                return quizAllQuestions
+
+        })
+        .catch(error => {
+        console.error("Error loading the JSON file:", error);
+        });
+    }
+    newQuiz().then(result => {
+        console.log("Quiz Data:", result); // Logs the selected quiz data
     });
-
 
 function generateIndividualSlideFrames(text) {
     const frames = [];

@@ -1,0 +1,160 @@
+{
+    "quiz": [
+      {
+        "question": "What command initializes a new Git repository?",
+        "options": ["git init", "git start", "git create", "git new"],
+        "answer": "git init"
+      },
+      {
+        "question": "What command adds changes to the staging area?",
+        "options": ["git commit", "git push", "git add", "git merge"],
+        "answer": "git add"
+      },
+      {
+        "question": "What command shows the current state of your Git repository?",
+        "options": ["git status", "git log", "git history", "git diff"],
+        "answer": "git status"
+      },
+      {
+        "question": "Which command is used to commit changes in Git?",
+        "options": ["git push", "git commit", "git add", "git update"],
+        "answer": "git commit"
+      },
+      {
+        "question": "What does 'git pull' do?",
+        "options": ["Pushes changes to the remote", "Merges local and remote repositories", "Pulls changes from the remote repository", "Deletes local changes"],
+        "answer": "Pulls changes from the remote repository"
+      },
+      {
+        "question": "Which command is used to check out a different branch?",
+        "options": ["git branch", "git checkout", "git switch", "git move"],
+        "answer": "git checkout"
+      },
+      {
+        "question": "What does 'git push' do?",
+        "options": ["Pushes local commits to the remote repository", "Pulls updates from the remote repository", "Commits changes to the local repository", "Shows the history of commits"],
+        "answer": "Pushes local commits to the remote repository"
+      },
+      {
+        "question": "Which command creates a new branch in Git?",
+        "options": ["git create", "git new-branch", "git branch", "git checkout -b"],
+        "answer": "git branch"
+      },
+      {
+        "question": "What command do you use to delete a branch locally?",
+        "options": ["git branch -d", "git branch -D", "git branch delete", "git delete branch"],
+        "answer": "git branch -d"
+      },
+      {
+        "question": "What is the default branch name for a new Git repository?",
+        "options": ["master", "main", "default", "root"],
+        "answer": "master"
+      },
+      {
+        "question": "What is the command to merge one branch into another?",
+        "options": ["git merge", "git combine", "git join", "git branch -m"],
+        "answer": "git merge"
+      },
+      {
+        "question": "Which command shows the commit history in Git?",
+        "options": ["git history", "git log", "git status", "git changes"],
+        "answer": "git log"
+      },
+      {
+        "question": "What command is used to view the differences between your working directory and the last commit?",
+        "options": ["git diff", "git changes", "git compare", "git show"],
+        "answer": "git diff"
+      },
+      {
+        "question": "Which of the following is the correct command to create a remote connection to a Git repository?",
+        "options": ["git link", "git connect", "git remote add", "git remote connect"],
+        "answer": "git remote add"
+      },
+      {
+        "question": "Which command is used to clone a Git repository?",
+        "options": ["git clone", "git copy", "git fetch", "git pull"],
+        "answer": "git clone"
+      },
+      {
+        "question": "Which of the following shows changes made to the repository but not yet staged?",
+        "options": ["git diff", "git status", "git log", "git changes"],
+        "answer": "git diff"
+      },
+      {
+        "question": "What is the command to see the configuration settings of your Git repository?",
+        "options": ["git config", "git setup", "git config list", "git show"],
+        "answer": "git config"
+      },
+      {
+        "question": "What does 'git reset' do?",
+        "options": ["Reverts the changes made in the working directory", "Deletes the most recent commit", "Changes the state of the staging area", "Clears the commit history"],
+        "answer": "Reverts the changes made in the working directory"
+      },
+      {
+        "question": "Which of these commands is used to rename a branch?",
+        "options": ["git rename", "git branch -rename", "git branch -m", "git change-name"],
+        "answer": "git branch -m"
+      },
+      {
+        "question": "How do you fetch updates from a remote repository without merging them into your working branch?",
+        "options": ["git pull", "git fetch", "git push", "git sync"],
+        "answer": "git fetch"
+      },
+      {
+        "question": "What is the command to check the current branch you are working on?",
+        "options": ["git branch", "git current", "git status", "git show"],
+        "answer": "git branch"
+      },
+      {
+        "question": "What does 'git diff' do?",
+        "options": ["Shows changes between commits", "Shows the differences between the working directory and the last commit", "Shows the current status of the branch", "Compares two remote branches"],
+        "answer": "Shows the differences between the working directory and the last commit"
+      },
+      {
+        "question": "Which command is used to create a tag in Git?",
+        "options": ["git tag", "git label", "git mark", "git tag-create"],
+        "answer": "git tag"
+      },
+      {
+        "question": "Which Git command shows the changes that have been staged for the next commit?",
+        "options": ["git diff", "git status", "git log", "git commit"],
+        "answer": "git status"
+      },
+      {
+        "question": "What is the purpose of a Git stash?",
+        "options": ["To save changes temporarily and revert to the previous state", "To create a backup of the repository", "To share changes with others", "To remove files from the repository"],
+        "answer": "To save changes temporarily and revert to the previous state"
+      },
+      {
+        "question": "Which of the following commands will list all remotes for the repository?",
+        "options": ["git remotes", "git remote list", "git remote", "git remote show"],
+        "answer": "git remote show"
+      },
+      {
+        "question": "Which command will show the differences between two commits?",
+        "options": ["git diff commit1 commit2", "git compare commit1 commit2", "git merge commit1 commit2", "git log commit1 commit2"],
+        "answer": "git diff commit1 commit2"
+      },
+      {
+        "question": "What is the command to undo the last commit (keeping changes locally)?",
+        "options": ["git reset --soft HEAD~1", "git undo last", "git reset --hard HEAD~1", "git remove commit"],
+        "answer": "git reset --soft HEAD~1"
+      },
+      {
+        "question": "Which Git command is used to show detailed information about a commit?",
+        "options": ["git commit --details", "git log --details", "git show", "git status"],
+        "answer": "git show"
+      },
+      {
+        "question": "What is the command to check for untracked files?",
+        "options": ["git status", "git diff", "git check", "git log"],
+        "answer": "git status"
+      },
+      {
+        "question": "What does 'git rebase' do?",
+        "options": ["Rebases the entire repository", "Rewrites history to apply changes from one branch to another", "Creates a new branch", "Merges the current branch with master"],
+        "answer": "Rewrites history to apply changes from one branch to another"
+      }
+    ]
+  }
+  

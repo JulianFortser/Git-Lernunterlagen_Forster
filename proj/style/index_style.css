@@ -4,7 +4,7 @@
 }
 
 :root {
-  --background: #010104;
+  --background: #ffff;
   --accent: #0600c2;
   --primary: #3a31d8;
   --secondary: #020024;
@@ -17,8 +17,63 @@ body {
   background-color: white;
 }
 
-.page {
+#first_section {
   height: 100%;
   width: 100%;
-  background-color: var(--text);
+  background-color: var(--background);
+}
+#first_section #textGit {
+  color: #000;
+  font-family: Inter;
+  font-size: 300px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+#first_section #basics {
+  color: #2F27CE;
+  font-family: Inter;
+  font-size: 300px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+#first_section #Navwrapper {
+  color: #000;
+  text-align: right;
+  font-family: Inter;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  display: flex;
+  flex-direction: column;
+}
+#first_section #StyleEm1 {
+  border-radius: 511px;
+  background: #443DFF;
+  filter: blur(125px);
+  width: 511px;
+  height: 488px;
+  flex-shrink: 0;
+}
+#first_section #StyleEm2 {
+  border-radius: 615px;
+  background: #282566;
+  filter: blur(125px);
+  width: 615px;
+  height: 597px;
+  flex-shrink: 0;
+}
+#first_section #StyleEm3 {
+  width: 512px;
+  height: 487px;
+  flex-shrink: 0;
+  border-radius: 512px;
+  background: #5B56B2;
+  filter: blur(125px);
+}
+#first_section #wrapheader {
+  display: flex;
+  flex-direction: column;
 }/*# sourceMappingURL=index_style.css.map */

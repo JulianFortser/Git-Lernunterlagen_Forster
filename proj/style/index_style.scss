@@ -3,7 +3,7 @@
     padding: 0;
 }
 :root {
-    --background: #010104;
+    --background: #ffff;
     --accent: #0600c2;
     --primary: #3a31d8;
     --secondary: #020024;
@@ -14,7 +14,7 @@ body{
     width: 100vw;
     background-color: #FFFF;
 }
-#1_section{
+#first_section{
     height: 100%;
     width: 100%;
     background-color: var(--background);
@@ -36,12 +36,50 @@ body{
         font-weight: 700;
         line-height: normal;
     }
+    #navWrapper{
+        color: #000;
+        text-align: right;
+        font-family: Inter;
+        font-size: 48px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+        display: flex;
+        flex-direction: column;
+        .nav_element{
+
+        }
+    }
 
     #StyleEm1{
         border-radius: 511px;
         background: #443DFF;
         filter: blur(125px);
+        width: 511px;
+        height: 488px;
+        flex-shrink: 0;
     }
-    
+
+    #StyleEm2{
+        border-radius: 615px;
+        background: #282566;
+        filter: blur(125px);
+        width: 615px;
+        height: 597px;
+        flex-shrink: 0;
+    }
+    #StyleEm3{
+        width: 512px;
+        height: 487px;
+        flex-shrink: 0;
+        border-radius: 512px;
+        background: #5B56B2;
+        filter: blur(125px);
+    }
+    #wrapheader{
+        display: flex;
+        flex-direction: column;
+    }
+
 
 }

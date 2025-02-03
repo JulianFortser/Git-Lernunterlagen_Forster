@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parralax</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="wrapper">
+        <div class="box">Lorem ipsum</div>
+        <div class="box">Dolor sit</div>
+        <div class="box">Amet</div>
+        <div class="box">Consectetur</div>
+        <div class="box">Adipiscing elit</div>
+        <div class="box">Sed do</div>
+        <div class="box">Eiusmod tempor</div>
+        <div class="box">Incididunt ut</div>
+        <div class="box">Labore et</div>
+        <div class="box">Dolore magna</div>
+    </div>
+
+    <div id="mouseHiteBox"></div>
+
+    <script defer>
+        const boxes = document.querySelectorAll('.box');
+        const wrapper = document.querySelector('#wrapper');
+        const major = document.querySelector('h1');
+        const adv = document.querySelector('#adv');
+        const mouseHiteBox = document.querySelector('#mouseHiteBox');
+
+        wrapper.addEventListener('mousemove', (e) => {
+            const x = e.clientX;
+            const y = e.clientY;
+            mouseHiteBox.style.top = y-15 + 'px';
+            mouseHiteBox.style.left = x-15 + 'px';
+            boxes.forEach(box => {
+                if (isColliding(box, mouseHiteBox)) {
+                    console.log('Collision detected with', box);
+            box.style.transition = 'top 0.1s ease, left 0.1s ease';
+
+                    box.style.transform = `translate(${(x - box.offsetLeft) / 10 +20}px, ${(y - box.offsetTop) / 10 +20}px)`;
+
+                }
+            });
+
+        });
+
+        function isColliding(el1, el2) {
+            const rect1 = el1.getBoundingClientRect();
+            const rect2 = el2.getBoundingClientRect();
+
+            return !(
+                rect1.top > rect2.bottom ||
+                rect1.right < rect2.left ||
+                rect1.bottom < rect2.top ||
+                rect1.left > rect2.right
+            );
+        }
+
+        // Example usage:
+        boxes.forEach(box => {
+            if (isColliding(box, mouseHiteBox)) {
+                console.log('Collision detected with', box);
+            }
+        });
+    </script>
+    
+</body>
+</html>

@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    user-select: none;
 }
 :root {
     --background: #ffff;
@@ -20,7 +21,7 @@ body{
     background-color: var(--background);
 
     #textGit{
-        top: 31%;
+        bottom:19%;
         position: absolute;
         color: #000;
         font-family: Inter;
@@ -29,13 +30,15 @@ body{
         font-weight: 700;
         line-height: normal;
         
-        left: 10%;
+        left: 5%;
     }
 
     #basics{
-        top: 60%;
-        left: 10%;
+        
+        
+        left: 5%;
         position: absolute;
+        bottom: -10%;
         color: #2F27CE;
         font-family: Inter;
         font-size: 280px;
@@ -53,30 +56,58 @@ body{
             font-style: normal;
             font-weight: 300;
             line-height: normal;
+            text-decoration: none;
+            transition: 1s ease-in;
+            
+
         }
+        .nave_element:nth-child(1):hover{
+            cursor: pointer;
+        }
+        .nave_element:nth-child(2):hover{
+            cursor: pointer;
+        }
+        .nave_element:nth-child(3):hover{
+            cursor: pointer;
+        }
+        padding-right: 10px;
+        position: relative;
+        left: 90%;
+        width: max-content;
     }
 
-    #StyleEm1{
+    #styleEm1{
+        scale: .7;
+
         border-radius: 511px;
         background: #443DFF;
         filter: blur(125px);
         width: 511px;
         height: 488px;
         flex-shrink: 0;
+        position: absolute;
+        left: 45%;
         z-index:2 ;
     }
 
-    #StyleEm2{
+    #styleEm2{
         border-radius: 615px;
         background: #282566;
         filter: blur(125px);
-        width: 615px;
+        width: 512px;
         height: 597px;
         flex-shrink: 0;
         z-index:2 ;
         position: absolute;
+        right: 3%;
+        top: 10%;
+        scale: .7;
+        z-index: 2;
+
     }
     #StyleEm3{
+        scale: .7;
+
         width: 512px;
         height: 487px;
         flex-shrink: 0;
@@ -86,6 +117,8 @@ body{
         z-index:2 ;
         position: absolute;
         left: 50%;
+        scale: .8;
+        top: 0;
     }
     #wrapheader{
         display: flex;
@@ -94,3 +127,23 @@ body{
 
 
 }
+
+
+#second_section{
+    height: 101.5%;
+    width: 100%;
+    background-color: var(--background);
+
+    #header{
+        font-family: Inter;
+        font-size: 200px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        color: #000;
+        position: absolute;
+        right: 1%;
+        scale: .9;
+    }
+}
+

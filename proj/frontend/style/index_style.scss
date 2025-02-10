@@ -20,34 +20,39 @@ body{
     background-color: var(--background);
 
     #textGit{
+        top: 31%;
+        position: absolute;
         color: #000;
         font-family: Inter;
-        font-size: 300px;
+        font-size: 280px;
         font-style: normal;
         font-weight: 700;
         line-height: normal;
+        
+        left: 10%;
     }
 
     #basics{
+        top: 60%;
+        left: 10%;
+        position: absolute;
         color: #2F27CE;
         font-family: Inter;
-        font-size: 300px;
+        font-size: 280px;
         font-style: normal;
         font-weight: 700;
         line-height: normal;
     }
     #navWrapper{
-        color: #000;
-        text-align: right;
-        font-family: Inter;
-        font-size: 48px;
-        font-style: normal;
-        font-weight: 300;
-        line-height: normal;
-        display: flex;
-        flex-direction: column;
-        .nav_element{
 
+        .nave_element{
+            color: #000;
+            text-align: right;
+            font-family: Inter;
+            font-size: 30px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: normal;
         }
     }
 
@@ -58,6 +63,7 @@ body{
         width: 511px;
         height: 488px;
         flex-shrink: 0;
+        z-index:2 ;
     }
 
     #StyleEm2{
@@ -67,6 +73,8 @@ body{
         width: 615px;
         height: 597px;
         flex-shrink: 0;
+        z-index:2 ;
+        position: absolute;
     }
     #StyleEm3{
         width: 512px;
@@ -75,6 +83,9 @@ body{
         border-radius: 512px;
         background: #5B56B2;
         filter: blur(125px);
+        z-index:2 ;
+        position: absolute;
+        left: 50%;
     }
     #wrapheader{
         display: flex;

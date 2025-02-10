@@ -7,6 +7,7 @@ body{
     background-color: black;
     height: 100vh;
     width: 100vw;
+    overflow: hidden;
 }
 #adv{
     font-family: Inter;
@@ -17,10 +18,8 @@ body{
 }
 .box {
     position: absolute;
-    width: 200px;
-    height: 200px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid white;
+    width: 150px;
+    height: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -28,12 +27,15 @@ body{
     font-size: 20px;
     font-weight: bold;
     text-align: center;
+    opacity: 0.8;
 }
 
 #wrapper {
     position: relative;
     height: 100%;
     width: 100%;
+    left: -10%;
+    top: -10%;
 }
 
 #mouseHiteBox{
@@ -42,13 +44,17 @@ body{
     background-color: transparent;
     position: absolute;
 }
-
-.box:nth-child(2) { top: 10%; left: 20%; }
-.box:nth-child(3) { top: 30%; left: 50%; }
-.box:nth-child(4) { top: 50%; left: 70%; }
-.box:nth-child(5) { top: 70%; left: 30%; }
-.box:nth-child(6) { top: 20%; left: 80%; }
-.box:nth-child(7) { top: 40%; left: 10%; }
-.box:nth-child(8) { top: 60%; left: 60%; }
-.box:nth-child(9) { top: 80%; left: 40%; }
-.box:nth-child(10) { top: 90%; left: 90%; }
+.box:nth-child(1) { top: 5%; left: 10%; background-color: #FF5733; }
+.box:nth-child(2) { top: 15%; left: 40%; background-color: #33FF57; }
+.box:nth-child(3) { top: 25%; left: 70%; background-color: #3357FF; }
+.box:nth-child(4) { top: 35%; left: 20%; background-color: #FF33A1; }
+.box:nth-child(5) { top: 45%; left: 80%; background-color: #FF8C33; }
+.box:nth-child(6) { top: 55%; left: 10%; background-color: #33FFF5; }
+.box:nth-child(7) { top: 65%; left: 50%; background-color: #8C33FF; }
+.box:nth-child(8) { top: 75%; left: 30%; background-color: #FF3333; }
+.box:nth-child(9) { top: 85%; left: 90%; background-color: #33FF8C; }
+.box:nth-child(10) { top: 95%; left: 20%; background-color: #FF5733; }
+.box:nth-child(11) { top: 10%; left: 60%; background-color: #33A1FF; }
+.box:nth-child(12) { top: 20%; left: 80%; background-color: #FF33F5; }
+.box:nth-child(13) { top: 30%; left: 40%; background-color: #A1FF33; }
+.box:nth-child(14) { top: 40%; left: 70%; background-color: #FF8C33; }

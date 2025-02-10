@@ -36,8 +36,57 @@
     </div>
 
     <section id="third_section">
-        
+        <div class="outer">
+            <div class="slider">
+                <section>
+                    <div class="inner">
+                        <h1>Section 1</h1>
+                        <p>Lorem ipsum dolor sit amet, 
+                            consectetur adipisicing elit. 
+                            Adipisci voluptatem </p>
+                    </div>
+                </section>
+                <section>
+                    <div class="inner">
+                        <h1>Section 2</h1>
+                        <p>Lorem ipsum dolor sit amet, 
+                            consectetur adipisicing elit. 
+                            Adipisci voluptatem </p>
+                    </div>
+                </section>
+                <section>
+                    <div class="inner">
+                        <h1>Section 3</h1>
+                        <p>Lorem ipsum dolor sit amet, 
+                            consectetur adipisicing elit. 
+                            Adipisci voluptatem </p>
+                    </div>
+                </section>
+                <section>
+                    <div class="inner">
+                        <h1>Section 4</h1>
+                        <p>Lorem ipsum dolor sit amet, 
+                            consectetur adipisicing elit. 
+                            Adipisci voluptatem </p>
+                    </div>
+                </section>
+                <section>
+                    <div class="inner">
+                        <h1>Section 5</h1>
+                        <p>Lorem ipsum dolor sit amet, 
+                            consectetur adipisicing elit. 
+                            Adipisci voluptatem </p>
+                    </div>
+                </section>
+                
+            </div>
+        </div>
     </section>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.19/dist/lenis.min.js"></script> 
 
 
     <script>
@@ -75,6 +124,80 @@ async function animateTitle(frames) {
 
 // Animation starten
 animateTitle(animationFrames);
+const slider = document.querySelector('#third_section .slider')
+const sections = gsap.utils.toArray(".slider section")
+
+let tl = gsap.timeline({
+    defaults:{
+        ease : "none"
+    },
+    scrollTrigger:{
+        trigger: slider,
+        pin:true,
+        scrub:2,
+        end: () => "+=" + slider.offsetWidth,
+    }
+})
+
+tl.to(slider, {
+    xPercent:-60  
+})
+sections.forEach((stop, index) => {
+    tl.to(stop, {
+            yPercent: -18,
+            opacity: 1,
+            boxShadow: "0px 10px 168px -29px rgba(68,61,255,1)",
+            border: "2px solid #443DFF",
+            scrollTrigger: {
+                trigger: stop,
+                start: "left center",
+                end: "center center",
+                containerAnimation: tl,
+                scrub: true,
+            }
+        }
+    );
+    tl.to(stop.querySelector(".inner"),{
+        yPercent: -18,
+        opacity: 1,
+        scrollTrigger: {
+                trigger: stop,
+                start: "left center",
+                end: "center center",
+                containerAnimation: tl,
+                scrub: true,
+                stagger:true
+            }
+    })
+    if (sections[index+1]) {
+        tl.from(stop, {
+                yPercent: -18,
+                opacity: 1,
+                boxShadow: "0px 10px 168px -29px rgba(68,61,255,1)",
+                border: "2px solid #443DFF",
+                scrollTrigger: {
+                trigger: sections[index+1],
+                start: "left center",
+                end: "right center", // Adjusted end position to wait longer
+                containerAnimation: tl,
+                scrub: true,
+                markers: true
+                }
+            })
+            tl.from(stop.querySelector(".inner"),{
+            yPercent: -18,
+            opacity: 1,
+                scrollTrigger: {
+                trigger: sections[index+1],
+                start: "left center",
+                end: "right center", // Adjusted end position to wait longer
+                containerAnimation: tl,
+                scrub: true,
+                markers: true
+                }
+            })
+    }
+});
     </script>
 </body>
 </html>

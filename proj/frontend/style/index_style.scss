@@ -147,3 +147,52 @@ body{
     }
 }
 
+#third_section{
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    .outer{
+        overflow-x: hidden;
+    }
+    .slider{
+        width: 240vw;
+        display: flex;
+        justify-content: center;
+    }
+    section{
+        position: relative;
+        top: 60%;
+        height: 400px;
+        width: 250px;
+        background-color: #D9D9D9;
+        border-radius: 15px;
+        margin-right: 50px;
+        opacity: .3;
+        box-shadow: none;
+    }
+    .inner{
+        color: white;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        padding: 8px;
+        opacity: 0;
+        top: 110%;
+    
+    }
+    .inner h1{
+        text-align: center;
+    }
+    .inner p{
+        font-size: .5;
+    }
+    .bs{
+        height: 100%;
+        width: 100%;
+        background-color: rgb(39, 31, 64);
+    }
+    .pin-spacer{
+        background-color: #000;
+    }
+
+}

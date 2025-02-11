@@ -182,4 +182,123 @@ body {
 }
 #third_section .pin-spacer {
   background-color: #000;
+}
+
+#fourth_section {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  position: relative;
+  overflow: hidden;
+}
+#fourth_section #header {
+  color: white;
+  position: relative;
+  top: 20%;
+  font-size: 200px;
+  z-index: 10;
+}
+#fourth_section #adv {
+  font-family: Inter;
+  font-size: 150px;
+  font-style: normal;
+  font-weight: 900;
+  color: white;
+}
+#fourth_section .box {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  opacity: 0.8;
+  color: white;
+}
+#fourth_section #wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  left: -10%;
+  top: -10%;
+}
+#fourth_section #mouseHiteBox {
+  height: 30px;
+  width: 30px;
+  background-color: transparent;
+  position: absolute;
+}
+#fourth_section .box:nth-child(1) {
+  top: 5%;
+  left: 10%;
+  background-color: #003f5c;
+}
+#fourth_section .box:nth-child(2) {
+  top: 15%;
+  left: 40%;
+  background-color: #2f4b7c;
+}
+#fourth_section .box:nth-child(3) {
+  top: 25%;
+  left: 70%;
+  background-color: #665191;
+}
+#fourth_section .box:nth-child(4) {
+  top: 35%;
+  left: 20%;
+  background-color: #a05195;
+}
+#fourth_section .box:nth-child(5) {
+  top: 45%;
+  left: 80%;
+  background-color: #d45087;
+}
+#fourth_section .box:nth-child(6) {
+  top: 55%;
+  left: 10%;
+  background-color: #f95d6a;
+}
+#fourth_section .box:nth-child(7) {
+  top: 65%;
+  left: 50%;
+  background-color: #ff7c43;
+}
+#fourth_section .box:nth-child(8) {
+  top: 75%;
+  left: 30%;
+  background-color: #ffa600;
+}
+#fourth_section .box:nth-child(9) {
+  top: 85%;
+  left: 90%;
+  background-color: #003f5c;
+}
+#fourth_section .box:nth-child(10) {
+  top: 95%;
+  left: 20%;
+  background-color: #2f4b7c;
+}
+#fourth_section .box:nth-child(11) {
+  top: 10%;
+  left: 60%;
+  background-color: #665191;
+}
+#fourth_section .box:nth-child(12) {
+  top: 20%;
+  left: 80%;
+  background-color: #a05195;
+}
+#fourth_section .box:nth-child(13) {
+  top: 30%;
+  left: 40%;
+  background-color: #d45087;
+}
+#fourth_section .box:nth-child(14) {
+  top: 40%;
+  left: 70%;
+  background-color: #f95d6a;
 }/*# sourceMappingURL=index_style.css.map */

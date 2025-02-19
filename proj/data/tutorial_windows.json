@@ -76,70 +76,70 @@
             "title": "Git push",
             "form": "advanced",
             "question": "Commit Changes to your Remote-Repository",
-            "answer": "Use 'git push' to upload local repo content to a remote repository"
+            "answer": "Use 'git push' to upload local repo content to a remote repository. Commit alone only save the changes to your local repository"
         },
         {
             "id": 11,
             "title": "Git pull",
             "form": "advanced",
-            "question": "",
-            "answer": ""
+            "question": "Other Operators made changes. You want to syncronize them?",
+            "answer": "Use 'git pull'. It downloads the content from the remote-repository and immediatly update the local repo to match that content."
         },
         {
             "id": 12,
             "title": "Git fetch",
             "form": "advanced",
-            "question": "",
-            "answer": ""
+            "question": "Sync Changes?",
+            "answer": "Or use 'git fetch'. The difference to pull is that it doesn't immediatly update your local repo."
         },
         {
             "id": 13,
-            "title": "Git diff",
+            "title": "Git merge",
             "form": "advanced",
-            "question": "",
-            "answer": ""
+            "question": "What after git fetch?",
+            "answer": "Now, after you approved the changes, do 'git fetch' and your local repository is updated."
         },
         {
             "id": 14,
-            "title": "Git reset",
+            "title": "Git diff",
             "form": "advanced",
-            "question": "",
-            "answer": ""
+            "question": "Find changes?",
+            "answer": "'git diff', main difference to git status... It is specially aimed at comparisons and is very powerful at that. Compare commits, branches, a single file across revisions or branches. Status is specifically for the status of the working tree."
         },
         {
             "id": 15,
-            "title": "Git branch",
+            "title": "Git reset",
             "form": "advanced",
-            "question": "",
-            "answer": ""
+            "question": "Undo changes in your working directory?",
+            "answer": "Use 'git reset' to even get back to a specific commit while discarding all the commits made after that one."
         },
         {
             "id": 16,
-            "title": "Git checkout",
+            "title": "Git branch",
             "form": "advanced",
-            "question": "",
-            "answer": ""
+            "question": "Create a new arm of Development (Branch)",
+            "answer": "'git branch <new_branch_name>' to create a new branch."
         },
         {
             "id": 17,
-            "title": "Git merge",
+            "title": "Git checkout",
             "form": "advanced",
-            "question": "",
-            "answer": ""
+            "question": "Switch to a branch",
+            "answer": " 'git checkout <branch_name>' to switch to that branch."
         },
         {
             "id": 18,
             "title": "Git stash",
             "form": "advanced",
-            "question": "",
-            "answer": ""
+            "question": "Work on other stuff?",
+            "answer": " Use Stashing whithout discarding, or committing stages that are not ready."
         },
         {
             "id": 19,
             "title": "Git switch",
             "form": "advanced",
-            "question": "",
-            "answer": ""
+            "question": "Better than Git checkout?",
+            "answer": "No, just newer. Only some differences in syntax and behaviour."
         }
     ]
 }

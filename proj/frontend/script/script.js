@@ -11,8 +11,8 @@ function newQuiz(){
             // <---------- Variables ----------->
             
                 //Variables to change
-                let numberOfQuestionsReturning = 10;
-                let numberOfQuestionsInJson = data.quiz.length;
+                let numberOfQuestionsReturning = 10; //should not be longer than numberOfQuestionsInJson
+                let numberOfQuestionsInJson = data.quiz.length; //30 currently
 
                 //Variables NOT to change
                 const quizData = data.quiz;
@@ -46,9 +46,12 @@ function newQuiz(){
         console.error("Error loading the JSON file:", error);
         });
     }
-    newQuiz().then(result => {
-        console.log("Quiz Data:", result); // Logs the selected quiz data
-    });
+
+// Code snippet for Marc | data is a array with 10 questions
+newQuiz().then(data => {
+    console.log("Quiz Data:", data); // Logs the selected quiz data
+    
+});
 
 function generateIndividualSlideFrames(text) {
     const frames = [];

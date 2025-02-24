@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/index_style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+   
+    <div id="first_section">
+        <div id="navWrapper">
+            <p class="nave_element">Index</p>
+            <p class="nave_element">Challanges</p>
+            <p class="nave_element">Contact</p>
+        </div>
+
+        <div id="wrapheader">
+            <div id="textGit">Git</div>
+            <div id="basics">Basics</div>
+        </div>
+
+        <div id="styleEm1"></div>
+        <div id="styleEm2"></div>
+        <div id="StyleEm3"></div>
+    </div>
+
+    <div id="second_section">
+        <div id="header">
+            Was ist <span style="color: #2F27CE;">git?</span>
+        </div>
+    </div>
+
+    <section id="fourth_section">
+        <div id="wrapper">
+            <div class="box">Version Control</div>
+        <div class="box">Collaboration</div>
+        <div class="box">Branching Flexibility</div>
+        <div class="box">Fast Performance</div>
+        <div class="box">Distributed System</div>
+        <div class="box">Code Backup</div>
+        <div class="box">Merge Capabilities</div>
+        <div class="box">Open Source</div>
+        <div class="box">History Tracking</div>
+        <div class="box">Efficiency</div>
+        <div class="box">Code Integrity</div>
+        <div class="box">Security</div>
+        <div class="box">Rollback Capability</div>
+        <div class="box">Lightweight</div>
+        
+        </div>
+    
+        <div id="mouseHiteBox"></div>
+    
+        <script defer>
+            const boxes = document.querySelectorAll('.box');
+            const wrapper = document.querySelector('#wrapper');
+            const major = document.querySelector('h1');
+            const adv = document.querySelector('#adv');
+            const mouseHiteBox = document.querySelector('#mouseHiteBox');
+    
+            wrapper.addEventListener('mousemove', (e) => {
+                const x = e.clientX;
+                const y = e.clientY;
+                mouseHiteBox.style.top = y-15 + 'px';
+                mouseHiteBox.style.left = x-15 + 'px';
+    
+                boxes.forEach((box, index) => {
+                    const translationDistance = (index + 1) * 6; // Different translation distance for each box
+                    box.style.transform = `translate(${x/translationDistance}px, ${y/translationDistance}px)`;
+    
+                });
+                });
+    
+    
+            function isColliding(el1, el2) {
+                const rect1 = el1.getBoundingClientRect();
+                const rect2 = el2.getBoundingClientRect();
+    
+                return !(
+                    rect1.top > rect2.bottom ||
+                    rect1.right < rect2.left ||
+                    rect1.bottom < rect2.top ||
+                    rect1.left > rect2.right
+                );
+            }
+    
+            // Example usage:
+            boxes.forEach(box => {
+                if (isColliding(box, mouseHiteBox)) {
+                    console.log('Collision detected with', box);
+                }
+            });
+        </script>
+        
+        <p id="header">Advantages</p>
+    </section>
+    <section id="third_section">
+        <div class="outer">
+            <div class="slider">
+                <section>
+                    <div class="inner">
+                        <h1>Section 1</h1>
+                        <p>Lorem ipsum dolor sit amet, 
+                            consectetur adipisicing elit. 
+                            Adipisci voluptatem </p>
+                    </div>
+                </section>
+                <section>
+                    <div class="inner">
+                        <h1>Section 2</h1>
+                        <p>Lorem ipsum dolor sit amet, 
+                            consectetur adipisicing elit. 
+                            Adipisci voluptatem </p>
+                    </div>
+                </section>
+                <section>
+                    <div class="inner">
+                        <h1>Section 3</h1>
+                        <p>Lorem ipsum dolor sit amet, 
+                            consectetur adipisicing elit. 
+                            Adipisci voluptatem </p>
+                    </div>
+                </section>
+                <section>
+                    <div class="inner">
+                        <h1>Section 4</h1>
+                        <p>Lorem ipsum dolor sit amet, 
+                            consectetur adipisicing elit. 
+                            Adipisci voluptatem </p>
+                    </div>
+                </section>
+                <section>
+                    <div class="inner">
+                        <h1>Section 5</h1>
+                        <p>Lorem ipsum dolor sit amet, 
+                            consectetur adipisicing elit. 
+                            Adipisci voluptatem </p>
+                    </div>
+                </section>
+                
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.19/dist/lenis.min.js"></script> 
+
+
+    <script>
+        const animationFrames = [
+    "_____",
+    "____G",
+    "___G_",
+    "__G__",
+    "_G___",
+    "G____",
+    "G___i",
+    "G__i_",
+    "G_i__",
+    "Gi___",
+    "Gi__t",
+    "Gi_t_",
+    "Git__",
+    "Git_?",
+    "Git?!",
+    "Git?!",
+    "Git?!",
+    "Git?!"
+    
+];
+
+// Funktion, die durch das Array iteriert und den Titel aktualisiert
+async function animateTitle(frames) {
+    while (true) {
+        for (const frame of frames) {
+            document.title = frame;
+            await new Promise(resolve => setTimeout(resolve, 200));
+        }
+    }
+}
+
+// Animation starten
+animateTitle(animationFrames);
+const slider = document.querySelector('#third_section .slider')
+const sections = gsap.utils.toArray(".slider section")
+
+let tl = gsap.timeline({
+    defaults:{
+        ease : "none"
+    },
+    scrollTrigger:{
+        trigger: slider,
+        pin:true,
+        scrub:2,
+        end: () => "+=" + slider.offsetWidth,
+    }
+})
+
+tl.to(slider, {
+    xPercent:-60  
+})
+sections.forEach((stop, index) => {
+    tl.to(stop, {
+            yPercent: -18,
+            opacity: 1,
+            boxShadow: "0px 10px 168px -29px rgba(68,61,255,1)",
+            border: "2px solid #443DFF",
+            scrollTrigger: {
+                trigger: stop,
+                start: "left center",
+                end: "center center",
+                containerAnimation: tl,
+                scrub: true,
+            }
+        }
+    );
+    tl.to(stop.querySelector(".inner"),{
+        yPercent: -18,
+        opacity: 1,
+        scrollTrigger: {
+                trigger: stop,
+                start: "left center",
+                end: "center center",
+                containerAnimation: tl,
+                scrub: true,
+                stagger:true
+            }
+    })
+    if (sections[index+1]) {
+        tl.from(stop, {
+                yPercent: -18,
+                opacity: 1,
+                boxShadow: "0px 10px 168px -29px rgba(68,61,255,1)",
+                border: "2px solid #443DFF",
+                scrollTrigger: {
+                trigger: sections[index+1],
+                start: "left center",
+                end: "right center", // Adjusted end position to wait longer
+                containerAnimation: tl,
+                scrub: true,
+                markers: true
+                }
+            })
+            tl.from(stop.querySelector(".inner"),{
+            yPercent: -18,
+            opacity: 1,
+                scrollTrigger: {
+                trigger: sections[index+1],
+                start: "left center",
+                end: "right center", // Adjusted end position to wait longer
+                containerAnimation: tl,
+                scrub: true,
+                markers: true
+                }
+            })
+    }
+});
+    </script>
+</body>
+</html>

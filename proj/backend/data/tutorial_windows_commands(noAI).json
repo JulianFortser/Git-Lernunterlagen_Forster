@@ -1,0 +1,145 @@
+{
+    "informations": [
+        {
+            "id": 0,
+            "title": "Install Git",
+            "form": "basic",
+            "question": "What is Git, how to install it?",
+            "answer": "First of all, you need to download Git. Git is a version management software that allows tracking and recording changes to files. The easiest way to download Git for windows is to install it from this link: https://git-scm.com/download/win"    
+        },
+        {
+            "id": 1,
+            "title": "Git init",
+            "form": "basic",
+            "question": "Initialize a new Repository?",
+            "answer": "A Working directory is where you work on your files locally. Where you store your committed changes is the Repository, so you need to initialize a new Repository. Running 'git init' inside your target directory just adds a .git directory which makes your target to your new Git repository"
+        },
+        {
+            "id": 2,
+            "title": "Git clone",
+            "form": "basic",
+            "question": "Clone a Repository?",
+            "answer": "If you do not want to create a repo, but clone or copy one from somewhere else, 'git clone' is what you need. 'git clone <repo> <directory>'. In <repo>, fill in the repo-link that you want to clone ( ssh or https e.g. ). You can find the link on github.com or 'git ls-remote --get-url origin'. In <directory>, fill in the path to your local directory"
+        },
+        {
+            "id": 3,
+            "title": "Git add",
+            "form": "basic",
+            "question": "Add to staging area?",
+            "answer": "Now you just created a new file for example. If you want to add this change now, do it with 'git add'. The changes come into something, called staging area. With 'git add', the changes are not actually recorded until you run git commit. Git add just tells Git what files we want to commit"
+        },
+        {
+            "id": 4,
+            "title": "Git status",
+            "form": "basic",
+            "question": "Is Change already in staging area?",
+            "answer": "Now you want to check if you really put your change into the staging area? Run 'git status'. It displays the state of your working directory and staging area. It lets you see which changes have been staged, which haven't, and which aren't being tracked by Git."
+        },
+        {
+            "id": 5,
+            "title": "Git move",
+            "form": "basic",
+            "question": "Wrong Filename or location?",
+            "answer": "Hmm, something went wrong with your file name or location ;) What to do now? Run 'git mv <source> <destination>' | 'git mv <source> <destination-directory>'. The first one renames <source> which must exist and be either a file, symlink or dir. The second one, the last argument has to be an existing directory. Sources will be moved into destination"
+        },
+        {
+            "id": 6,
+            "title": "Git remove",
+            "form": "basic",
+            "question": "Remove file from staging area?",
+            "answer": "Oh no, you must not have created a new file and want to remove it from the working directory and staging area. Just use 'git rm <path-to-file>'. You can think of it as the inverse of the git add command"
+        },
+        
+        {
+            "id": 7,
+            "title": "Git commit",
+            "form": "basic",
+            "question": "Commit your Change?",
+            "answer": "You finally did the right change and want to commit it? Just 'git commit' and there you go ;) Commit captures a snapshot of the project's currently staged changes. The snapshot is the latest version of your project."
+        },
+        {
+            "id": 8,
+            "title": "Git restore",
+            "form": "basic",
+            "question": "Get back to last file-version?",
+            "answer": "You made new changes to your file, but you can't remember where. Because you want to delete them and did not commit them before, just use 'git restore'. It brings your file to your last commit."
+        },
+        {
+            "id": 9,
+            "title": "Git remote init",
+            "form": "advanced",
+            "question": "Working on Repositories with others?",
+            "answer": "You want to share your project with others to work together? Use Remotes. Now it is important that you memorize the informations given in 'git clone' ;) Just clone a repo or upload yours to any server or web-based interface like Github, Gitlab, Bitbucket etc."
+        },
+        {
+            "id": 10,
+            "title": "Git push",
+            "form": "advanced",
+            "question": "Commit Changes to your Remote-Repository",
+            "answer": "Use 'git push' to upload local repo content to a remote repository. Commit alone only save the changes to your local repository"
+        },
+        {
+            "id": 11,
+            "title": "Git pull",
+            "form": "advanced",
+            "question": "Other Operators made changes. You want to syncronize them?",
+            "answer": "Use 'git pull'. It downloads the content from the remote-repository and immediatly update the local repo to match that content."
+        },
+        {
+            "id": 12,
+            "title": "Git fetch",
+            "form": "advanced",
+            "question": "Sync Changes?",
+            "answer": "Or use 'git fetch'. The difference to pull is that it doesn't immediatly update your local repo."
+        },
+        {
+            "id": 13,
+            "title": "Git merge",
+            "form": "advanced",
+            "question": "What after git fetch?",
+            "answer": "Now, after you approved the changes, do 'git fetch' and your local repository is updated."
+        },
+        {
+            "id": 14,
+            "title": "Git diff",
+            "form": "advanced",
+            "question": "Find changes?",
+            "answer": "'git diff', main difference to git status... It is specially aimed at comparisons and is very powerful at that. Compare commits, branches, a single file across revisions or branches. Status is specifically for the status of the working tree."
+        },
+        {
+            "id": 15,
+            "title": "Git reset",
+            "form": "advanced",
+            "question": "Undo changes in your working directory?",
+            "answer": "Use 'git reset' to even get back to a specific commit while discarding all the commits made after that one."
+        },
+        {
+            "id": 16,
+            "title": "Git branch",
+            "form": "advanced",
+            "question": "Create a new arm of Development (Branch)",
+            "answer": "'git branch <new_branch_name>' to create a new branch."
+        },
+        {
+            "id": 17,
+            "title": "Git checkout",
+            "form": "advanced",
+            "question": "Switch to a branch",
+            "answer": " 'git checkout <branch_name>' to switch to that branch."
+        },
+        {
+            "id": 18,
+            "title": "Git stash",
+            "form": "advanced",
+            "question": "Work on other stuff?",
+            "answer": " Use Stashing whithout discarding, or committing stages that are not ready."
+        },
+        {
+            "id": 19,
+            "title": "Git switch",
+            "form": "advanced",
+            "question": "Better than Git checkout?",
+            "answer": "No, just newer. Only some differences in syntax and behaviour."
+        }
+    ]
+}

@@ -77,3 +77,8 @@ const frames = generateIndividualSlideFrames(text);
 
 console.log(frames);
 // 0c549648b9fd5516ed139fd46f8e6ec87cf29589
+
+
+function back(){
+    window.location.href = "../frontend/index.html"
+}

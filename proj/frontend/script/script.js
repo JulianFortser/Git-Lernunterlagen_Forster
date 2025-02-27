@@ -4,7 +4,7 @@ console.log("Js works");
 
 // Fetch data from the JSON file and use it also as Main
 function newQuiz(){
-    return fetch('./data/questionAndAnswerEnglish.json')
+    return fetch('../backend/data/questionAndAnswerEnglish.json')
         .then(response => response.json())  // Parse the response as JSON
         .then(data => {
 
@@ -50,7 +50,7 @@ function newQuiz(){
 // Code snippet for Marc | data is a array with 10 questions
 newQuiz().then(data => {
     console.log("Quiz Data:", data); // Logs the selected quiz data
-    
+
 });
 
 function generateIndividualSlideFrames(text) {

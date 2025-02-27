@@ -107,6 +107,7 @@ const animationFrames = [
     "Git Gu____",
     "Git Gu__d_",
     "Git Gu_d__",
+    "Git Gud___",
     "Git Gud__!",
     "Git Gud_!_",
     "Git Gud!__",

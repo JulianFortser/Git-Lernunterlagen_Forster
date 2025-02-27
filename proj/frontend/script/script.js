@@ -53,7 +53,7 @@ newQuiz().then(data => {
 
 });
 
-function generateIndividualSlideFrames(text) {
+/*function generateIndividualSlideFrames(text) {
     const frames = [];
     const length = text.length;
     let currentFrame = "_".repeat(length).split("");
@@ -81,4 +81,120 @@ console.log(frames);
 
 function back(){
     window.location.href = "../frontend/index.html"
+}*/
+
+
+const animationFrames = [
+    "_________",
+    "____G____",
+    "___G_____",
+    "__G______",
+    "_G_______",
+    "G________",
+    "G___i____",
+    "G__i_____",
+    "G_i______",
+    "Gi_______",
+    "Gi__t____",
+    "Gi_t_____",
+    "Git_____G",
+    "Git____G_",
+    "Git__G___",
+    "Git G____",
+    "Git G___u",
+    "Git G_u__",
+    "Git Gu___",
+    "Git Gu__d",
+    "Git Gu_d_",
+    "Git Gud_!",
+    "Git Gud!?",
+    "Git Gud!?",
+    "Git Gud!?"
+];
+
+// Funktion, die durch das Array iteriert und den Titel aktualisiert
+async function animateTitle(frames) {
+    while (true) {
+        for (const frame of frames) {
+            document.title = frame;
+            await new Promise(resolve => setTimeout(resolve, 200));
+        }
+    }
 }
+
+// Animation starten
+animateTitle(animationFrames);
+const slider = document.querySelector('#third_section .slider')
+const sections = gsap.utils.toArray(".slider section")
+
+let tl = gsap.timeline({
+    defaults:{
+        ease : "none"
+    },
+    scrollTrigger:{
+        trigger: slider,
+        pin:true,
+        scrub:2,
+        end: () => "+=" + slider.offsetWidth,
+    }
+})
+
+tl.to(slider, {
+    xPercent:-60  
+})
+sections.forEach((stop, index) => {
+    tl.to(stop, {
+            yPercent: -18,
+            opacity: 1,
+            boxShadow: "0px 10px 168px -29px rgba(68,61,255,1)",
+            border: "2px solid #443DFF",
+            scrollTrigger: {
+                trigger: stop,
+                start: "left center",
+                end: "center center",
+                containerAnimation: tl,
+                scrub: true,
+            }
+        }
+    );
+    tl.to(stop.querySelector(".inner"),{
+        yPercent: -18,
+        opacity: 1,
+        scrollTrigger: {
+                trigger: stop,
+                start: "left center",
+                end: "center center",
+                containerAnimation: tl,
+                scrub: true,
+                stagger:true
+            }
+    })
+    if (sections[index+1]) {
+        tl.from(stop, {
+                yPercent: -18,
+                opacity: 1,
+                boxShadow: "0px 10px 168px -29px rgba(68,61,255,1)",
+                border: "2px solid #443DFF",
+                scrollTrigger: {
+                trigger: sections[index+1],
+                start: "left center",
+                end: "right center", // Adjusted end position to wait longer
+                containerAnimation: tl,
+                scrub: true,
+                markers: true
+                }
+            })
+            tl.from(stop.querySelector(".inner"),{
+            yPercent: -18,
+            opacity: 1,
+                scrollTrigger: {
+                trigger: sections[index+1],
+                start: "left center",
+                end: "right center", // Adjusted end position to wait longer
+                containerAnimation: tl,
+                scrub: true,
+                markers: true
+                }
+            })
+    }
+});

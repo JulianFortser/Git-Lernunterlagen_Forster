@@ -1,0 +1,28 @@
+{
+    "concepts": [
+        {
+            "id": 0,
+            "title": "Staging Area",
+            "question": "What is the Staging Area?",
+            "answer": "The staging area is like a waiting room where files are prepared before they are saved to the project. When you make changes, you need to add them to the staging area using 'git add'. Only files in the staging area will be saved when you commit."
+        },
+        {
+            "id": 1,
+            "title": "Local Repository",
+            "question": "What is the Local Repository?",
+            "answer": "The local repository is where your project files are stored on your computer. It keeps a history of all your changes that you have committed. You can work and make changes to the files here."
+        },
+        {
+            "id": 2,
+            "title": "Remote Repository",
+            "question": "What is the Remote Repository?",
+            "answer": "The remote repository is a place online (like GitHub or GitLab) where the project's files are stored and shared with others. You push your changes from your local repository to the remote repository so others can see and work with them."
+        },
+        {
+            "id": 3,
+            "title": "Branches",
+            "question": "What are Branches?",
+            "answer": "Branches are like different paths in your project where you can make changes without affecting the main project. You can create a branch to work on a new feature, and later, you can combine it with the main"
+        }
+    ]
+}

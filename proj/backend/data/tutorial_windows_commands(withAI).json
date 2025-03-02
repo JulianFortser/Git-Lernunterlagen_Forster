@@ -1,0 +1,145 @@
+{
+    "informations": [
+        {
+            "id": 0,
+            "title": "Install Git",
+            "form": "basic",
+            "question": "What is Git, how to install it?",
+            "answer": "First, you need to download Git. Git is a software that helps you track and record changes to files. The easiest way to download Git for Windows is to install it from this link: https://git-scm.com/download/win."    
+        },
+        {
+            "id": 1,
+            "title": "Git init",
+            "form": "basic",
+            "question": "How do you initialize a new repository?",
+            "answer": "A 'working directory' is where you work on your files on your computer. The 'repository' is where your committed changes are stored. To create a new repository, run 'git init'. This command adds a special .git directory to your folder and makes it a Git repository."
+        },
+        {
+            "id": 2,
+            "title": "Git clone",
+            "form": "basic",
+            "question": "How to clone a repository?",
+            "answer": "If you want to copy a repository from someone else instead of creating a new one, you can use 'git clone'. Use the command like this: 'git clone <repo-link> <directory>'. Replace <repo-link> with the link to the repository you want to copy (for example, from GitHub). Replace <directory> with where you want to store the copied files on your computer."
+        },
+        {
+            "id": 3,
+            "title": "Git add",
+            "form": "basic",
+            "question": "How do you add files to the staging area?",
+            "answer": "If you just created a new file, and you want to include it in your next commit, you need to add it to the staging area with 'git add'. The staging area is like a waiting room where Git checks what changes to save. The files won't be saved until you run 'git commit'."
+        },
+        {
+            "id": 4,
+            "title": "Git status",
+            "form": "basic",
+            "question": "How to check if a file is in the staging area?",
+            "answer": "Use 'git status' to check if your changes are ready to be committed. It shows which files are in the staging area, which are not, and which Git isn't tracking yet."
+        },
+        {
+            "id": 5,
+            "title": "Git move",
+            "form": "basic",
+            "question": "How to fix a wrong filename or location?",
+            "answer": "If you made a mistake with your file name or location, use 'git mv'. For example, 'git mv <source> <destination>' to rename a file, or 'git mv <source> <destination-directory>' to move a file into a different folder."
+        },
+        {
+            "id": 6,
+            "title": "Git remove",
+            "form": "basic",
+            "question": "How to remove a file from the staging area?",
+            "answer": "If you added a file by mistake and want to remove it from the staging area, use 'git rm <file-path>'. This will also remove the file from your working directory."
+        },
+        
+        {
+            "id": 7,
+            "title": "Git commit",
+            "form": "basic",
+            "question": "How to commit your changes?",
+            "answer": "Once you’ve made your changes, you can commit them using 'git commit'. This saves a snapshot of your project at that moment."
+        },
+        {
+            "id": 8,
+            "title": "Git restore",
+            "form": "basic",
+            "question": "How to undo changes and go back to the last version of a file?",
+            "answer": "If you made some changes you want to undo, and you haven't committed them yet, use 'git restore'. This will bring your file back to the version it was in the last commit."
+        },
+        {
+            "id": 9,
+            "title": "Git remote init",
+            "form": "advanced",
+            "question": "How do you work with others on repositories?",
+            "answer": "To work together with others, you can use 'remotes.' Upload your project to a server or a website like GitHub, GitLab, or Bitbucket, or clone someone else's repository."
+        },
+        {
+            "id": 10,
+            "title": "Git push",
+            "form": "advanced",
+            "question": "How to upload your changes to a remote repository?",
+            "answer": "Use 'git push' to send your changes to a remote repository. Committing only saves changes to your local computer. Pushing uploads those changes to the remote repository so others can see them."
+        },
+        {
+            "id": 11,
+            "title": "Git pull",
+            "form": "advanced",
+            "question": "How to get the latest changes made by others?",
+            "answer": "If other people made changes to the repository, use 'git pull' to download and update your local files to match the latest version."
+        },
+        {
+            "id": 12,
+            "title": "Git fetch",
+            "form": "advanced",
+            "question": "How to sync changes without updating immediately?",
+            "answer": "Use 'git fetch' to download the changes from the remote repository without updating your local files. You can review them first before deciding to update."
+        },
+        {
+            "id": 13,
+            "title": "Git merge",
+            "form": "advanced",
+            "question": "What happens after using 'git fetch'?",
+            "answer": "After fetching changes, you need to run 'git merge' to update your local repository with the changes from the remote repository."
+        },
+        {
+            "id": 14,
+            "title": "Git diff",
+            "form": "advanced",
+            "question": "How to find out what changed?",
+            "answer": "Use 'git diff' to compare the changes in your files. It shows you exactly what has been added or removed in your project. It’s useful for comparing different versions of files or branches."
+        },
+        {
+            "id": 15,
+            "title": "Git reset",
+            "form": "advanced",
+            "question": "How to undo changes and go back to a previous commit?",
+            "answer": "Answer: Use 'git reset' to go back to a previous commit. This will remove the changes you made after that commit."
+        },
+        {
+            "id": 16,
+            "title": "Git branch",
+            "form": "advanced",
+            "question": "How to create a new branch?",
+            "answer": "Use 'git branch <new-branch-name>' to create a new branch for working on different parts of your project."
+        },
+        {
+            "id": 17,
+            "title": "Git checkout",
+            "form": "advanced",
+            "question": "How to switch to a different branch?",
+            "answer": " 'Use 'git checkout <branch-name>' to switch to the branch you want to work on."
+        },
+        {
+            "id": 18,
+            "title": "Git stash",
+            "form": "advanced",
+            "question": "What if you need to work on something else?",
+            "answer": " Use 'git stash' to temporarily save your changes without committing them. This lets you switch to something else and come back later without losing your work."
+        },
+        {
+            "id": 19,
+            "title": "Git switch",
+            "form": "advanced",
+            "question": "Is 'git switch' better than 'git checkout'?",
+            "answer": "No, 'git switch' is just a newer command. It works like 'git checkout', but it’s easier to use and more focused on switching branches."
+        }
+    ]
+}

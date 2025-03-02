@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Git-Quiz</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.19/dist/lenis.min.js"></script> 
     <script src="./script/script.js" defer></script>
     <link rel="stylesheet" href="./style/quiz.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
@@ -25,7 +29,10 @@
         Back
     </div>
 
-    <div>
+    <div id="cirtlesPART1">
+        <div id="circle6"></div>
+        <div id="circle5"></div>
+
         <div id="circle4"></div>
         <div id="circle3"></div>
         <div id="circle2"></div>
@@ -33,11 +40,27 @@
     </div>
     
     <div id="chooseAdvancedOrBasic">
-        <div id="Basic">Quiz Basic</div>
-        <div id="Advanced">Quiz Advanced</div>
+        <div id="Basic" onclick="quiz()">Quiz Basic</div>
+        <div id="Advanced" onclick="quiz()">Quiz Advanced</div>
     </div>
 
+    
+    <div id="quizBox">
+        <div id="wrapper">
 
+        </div>
+        <div id="loaderTXT" style="display: none;">Calculating your Results...</div>
+        <div class="loader"></div>
 
+        <div id="cirtlesPART2">
+            <div id="circle7"></div>
+            <div id="circle8"></div>
+            <div id="circle9"></div>
+        </div>
+
+    </div>
+    
+    
+    
 </body>
 </html>

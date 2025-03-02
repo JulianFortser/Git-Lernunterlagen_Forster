@@ -1,5 +1,11 @@
 //Check if javaScript Works
 console.log("Js works");
+document.body.style.overflowX = "hidden";
+document.body.style.overflowY = "auto";
+
+
+let QuizCounter = 0;
+let resultsRight = 0;
 
 
 // Fetch data from the JSON file and use it also as Main
@@ -48,10 +54,98 @@ function newQuiz(){
     }
 
 // Code snippet for Marc | data is a array with 10 questions
-newQuiz().then(data => {
-    console.log("Quiz Data:", data); // Logs the selected quiz data
 
-});
+
+
+function quiz(){
+    document.body.style.overflowX = "hidden";
+    document.body.style.overflowY = "hidden";
+    document.getElementById('cirtlesPART1').style.display="none";
+    document.getElementById('chooseAdvancedOrBasic').style.display="none";
+    document.getElementById('header').style.display="none";
+    document.getElementById('indexButton').style.display="none";
+
+    document.getElementById('quizBox').style.display="block";
+    document.getElementById('cirtlesPART2').style.display="block";
+
+    quizBuilder();
+}
+
+
+
+
+
+
+
+function quizBuilder(){
+    document.getElementById('quizBox').style.display="block";
+    if(QuizCounter == 10){
+        loadEnd();
+    }
+
+    document.getElementById('wrapper').innerHTML=" ";
+    newQuiz().then(data => {
+        console.log("Quiz Data:", data); // Logs the selected quiz data
+        
+        document.getElementById('wrapper').innerHTML+=`   
+            <div id="questionCount">Question ${QuizCounter+1}: </div>
+
+            <div id="question">${data[QuizCounter].question}</div>
+            <div id="choosingAnswere">
+                <div id="answereOption0" onclick="check('${data[QuizCounter].options[0]}', '${data[QuizCounter].answer}', 0)"> <div id="A">A)</div> <p>${data[QuizCounter].options[0]}</p></div>
+                <div id="answereOption1" onclick="check('${data[QuizCounter].options[1]}', '${data[QuizCounter].answer}', 1)"> <div id="B">B)</div> <p>${data[QuizCounter].options[1]}</p></div>
+                <div id="answereOption2" onclick="check('${data[QuizCounter].options[2]}', '${data[QuizCounter].answer}', 2)"> <div id="C">C)</div> <p>${data[QuizCounter].options[2]}</p></div>
+                <div id="answereOption3" onclick="check('${data[QuizCounter].options[3]}', '${data[QuizCounter].answer}', 3)"> <div id="D">D)</div> <p>${data[QuizCounter].options[3]}</p></div>
+            </div>
+        
+        `;
+
+    }); 
+}
+
+function check(id1, id2, id3){
+        if(id1 == id2){
+            document.getElementById('answereOption'+id3).style.backgroundColor="Green";
+            QuizCounter++;
+            resultsRight++;
+
+            setTimeout(() => {
+                quizBuilder();
+            }, 500); 
+            
+        }
+        else if (id1 != id2){
+            document.getElementById('answereOption'+id3).style.backgroundColor="Red";
+
+            QuizCounter++;
+            setTimeout(() => {
+                quizBuilder();
+            }, 500);
+        }
+}
+
+
+function loadEnd() {
+    document.getElementById('wrapper').innerHTML=" ";
+    document.getElementById('wrapper').style.display="none";
+    document.querySelector('#loaderTXT').style.display="block";
+    document.querySelector('.loader').style.display="block";
+    setTimeout(() => {
+        loadingResults();
+    }, 5000);
+}
+
+function loadingResults(){
+    document.querySelector('#loaderTXT').style.display="none";
+    document.querySelector('.loader').style.display="none";
+
+    document.getElementById('wrapper').style.display="block";
+    document.getElementById('wrapper').innerHTML+= `
+    
+    `;
+}
+
+
 
 /*function generateIndividualSlideFrames(text) {
     const frames = [];
@@ -78,10 +172,10 @@ const frames = generateIndividualSlideFrames(text);
 console.log(frames);
 // 0c549648b9fd5516ed139fd46f8e6ec87cf29589
 
-
+*/
 function back(){
     window.location.href = "../frontend/index.html"
-}*/
+}
 
 
 const animationFrames = [

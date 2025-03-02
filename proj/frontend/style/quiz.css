@@ -109,6 +109,56 @@ body {
     cursor: pointer;
 }
 
+#timerBox{
+    position: absolute;
+    z-index: 5;
+    top: 0%;
+    left: 85%;
+    color: #050315;
+    font-family: inter;
+    font-size: 4rem;
+    font-weight: bolder;
+}
+
+#title{
+    color: #050315;
+    z-index: 5;
+    position: relative;
+    font-size: 5rem;
+    font-weight: bolder;
+    margin-bottom: 2%;
+    text-align: center;
+    margin-top: 15%;
+}
+
+#endTime{
+    color: #050315;
+    z-index: 5;
+    position: relative;
+    font-size: 3rem;
+    font-weight: bolder;
+    text-align: center;
+}
+
+#buttonBackToQuiz{
+    z-index: 5;
+    padding: 1%;
+    background-color: #433BFF;
+    width: 25%;
+    border-radius: 20px;
+
+    margin-left: 75%;
+    margin-top: 15%;
+
+    color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 2rem;
+    font-style: Inter;
+    font-weight: 700;
+    line-height: normal;
+    cursor: pointer;
+}
 
 
 #quizBox{

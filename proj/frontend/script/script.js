@@ -7,6 +7,16 @@ document.body.style.overflowY = "auto";
 let QuizCounter = 0;
 let resultsRight = 0;
 
+let title = [
+    "Git-Newbie",
+    "Commit-Explorer",
+    "Branch-Begleiter",
+    "Merge-Maestro",
+    "Git-Guru",
+    "Version-Control-Virtuose"
+  ];
+  
+
 
 // Fetch data from the JSON file and use it also as Main
 function newQuiz(){
@@ -60,12 +70,15 @@ function newQuiz(){
 function quiz(){
     document.body.style.overflowX = "hidden";
     document.body.style.overflowY = "hidden";
+
     document.getElementById('cirtlesPART1').style.display="none";
     document.getElementById('chooseAdvancedOrBasic').style.display="none";
     document.getElementById('header').style.display="none";
     document.getElementById('indexButton').style.display="none";
 
+    
     document.getElementById('quizBox').style.display="block";
+    document.getElementById('timerBox').style.display="block";
     document.getElementById('cirtlesPART2').style.display="block";
 
     quizBuilder();
@@ -85,7 +98,7 @@ function quizBuilder(){
 
     document.getElementById('wrapper').innerHTML=" ";
     newQuiz().then(data => {
-        console.log("Quiz Data:", data); // Logs the selected quiz data
+        // console.log("Quiz Data:", data); // Logs the selected quiz data
         
         document.getElementById('wrapper').innerHTML+=`   
             <div id="questionCount">Question ${QuizCounter+1}: </div>
@@ -116,8 +129,8 @@ function check(id1, id2, id3){
         }
         else if (id1 != id2){
             document.getElementById('answereOption'+id3).style.backgroundColor="Red";
-
             QuizCounter++;
+
             setTimeout(() => {
                 quizBuilder();
             }, 500);
@@ -125,25 +138,124 @@ function check(id1, id2, id3){
 }
 
 
-function loadEnd() {
-    document.getElementById('wrapper').innerHTML=" ";
-    document.getElementById('wrapper').style.display="none";
-    document.querySelector('#loaderTXT').style.display="block";
-    document.querySelector('.loader').style.display="block";
-    setTimeout(() => {
-        loadingResults();
-    }, 5000);
-}
+function loadingResults(minutes, seconds){
+    let gitTitle;
 
-function loadingResults(){
+    if (resultsRight == 10) {
+        gitTitle = title[5];  
+    } 
+    else if (resultsRight == 9) {
+        gitTitle = title[4];  
+    } 
+    else if (resultsRight == 8) {
+        gitTitle = title[3];  
+    } 
+    else if (resultsRight == 6 || resultsRight == 7) {
+        gitTitle = title[2];  
+    } 
+    else if (resultsRight == 4 || resultsRight == 5) {
+        gitTitle = title[1];  
+    }
+    else if (resultsRight >= 0 && resultsRight <= 3) {
+        gitTitle = title[0];  
+    }
+
     document.querySelector('#loaderTXT').style.display="none";
     document.querySelector('.loader').style.display="none";
 
     document.getElementById('wrapper').style.display="block";
     document.getElementById('wrapper').innerHTML+= `
-    
+        <div id="title">${gitTitle}</div>
+        <div id="endTime">${minutes} min ${seconds} sec</div>
+
+        <div id="buttonBackToQuiz" onclick="reloadQuiz()">back</div>
     `;
 }
+
+function reloadQuiz(){
+    window.location.href="./quiz.html";
+}
+
+
+
+let intervalId; 
+let stoppedTime = 0; 
+let currentTime = 0; 
+
+function startTimer(duration, display) {
+    let timer = duration, minutes, seconds;
+
+    // Setze den Intervall, damit er in `intervalId` gespeichert wird
+    intervalId = setInterval(function () {
+        currentTime = timer;  // Speichere die aktuelle Zeit in `currentTime`
+        
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            loadEnd();
+        }
+    }, 1000);
+}
+
+// Diese Methode stoppt den Timer und speichert die gestoppte Zeit
+function loadEnd() {
+    // Stoppe den Timer
+    clearInterval(intervalId);
+
+    // Speichere die gestoppte Zeit in der globalen Variable
+    stoppedTime = currentTime;
+
+    // Berechne die gestoppte Zeit in Minuten und Sekunden
+    let minutes = parseInt(stoppedTime / 60, 10);
+    let seconds = stoppedTime % 60;
+
+    // Zeige die gestoppte Zeit an (in der Konsole oder irgendwo anders)
+    console.log("Timer gestoppt: " + minutes + " Minuten und " + seconds + " Sekunden");
+
+    document.getElementById('wrapper').innerHTML=" ";
+    document.getElementById('timerBox').style.display="none";
+    document.querySelector('#loaderTXT').style.display="block";
+    document.querySelector('.loader').style.display="block";
+    
+    setTimeout(() => {
+        loadingResults(minutes, seconds);
+    }, 5000);
+}
+
+
+function stopTimer() {
+    clearInterval(intervalId);
+
+    
+    stoppedTime = currentTime;
+    
+    
+    let minutes = parseInt(stoppedTime / 60, 10);
+    let seconds = stoppedTime % 60;
+
+    console.log("Timer gestoppt: " + minutes + " Minuten und " + seconds + " Sekunden");
+}
+
+
+window.onload = function () {
+    var count = 180,
+        display = document.querySelector('#time');
+      
+    document.getElementById('Basic').addEventListener('click', function () { 
+        startTimer(count, display);
+    });    
+
+    document.getElementById('Advanced').addEventListener('click', function () { 
+        startTimer(count, display);
+    });
+
+};
 
 
 

@@ -36,7 +36,7 @@ body {
   line-height: normal;
   left: 5%;
 }
-#first_section #basics {
+#first_section #textbasics {
   left: 5%;
   position: absolute;
   bottom: -10%;
@@ -145,7 +145,7 @@ body {
   overflow-x: hidden;
 }
 #third_section .slider {
-  width: 240vw;
+  width: 350vw;
   display: flex;
   justify-content: center;
 }
@@ -301,4 +301,31 @@ body {
   top: 40%;
   left: 70%;
   background-color: #f95d6a;
+}
+
+#fifth_section {
+  height: 100%;
+  width: 100%;
+}
+#fifth_section #major {
+  position: relative;
+  top: 40%;
+  color: #2F27CE;
+  font-family: Inter;
+  font-size: 150px;
+  font-weight: 700;
+  line-height: normal;
+  text-align: left;
+  margin-bottom: 20px;
+}
+#fifth_section #advantages {
+  position: relative;
+  top: 30%;
+  color: white;
+  font-family: Inter;
+  font-size: 150px;
+  font-weight: 700;
+  line-height: normal;
+  text-align: left;
+  margin-top: 20px;
 }/*# sourceMappingURL=index_style.css.map */

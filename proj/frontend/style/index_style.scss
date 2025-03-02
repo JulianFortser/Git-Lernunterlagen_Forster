@@ -33,7 +33,7 @@ body{
         left: 5%;
     }
 
-    #basics{
+    #textbasics{
         
         
         left: 5%;
@@ -155,7 +155,7 @@ body{
         overflow-x: hidden;
     }
     .slider{
-        width: 240vw;
+        width: 350vw;
         display: flex;
         justify-content: center;
     }
@@ -265,4 +265,31 @@ body{
     .box:nth-child(12) { top: 20%; left: 80%; background-color: #a05195; }
     .box:nth-child(13) { top: 30%; left: 40%; background-color: #d45087; }
     .box:nth-child(14) { top: 40%; left: 70%; background-color: #f95d6a; }
+}
+#fifth_section{
+    height: 100%;
+    width: 100%;
+   
+#major {
+    position: relative;
+    top: 40%;
+     color: #2F27CE;
+     font-family: Inter;
+     font-size: 150px;
+     font-weight: 700;
+     line-height: normal;
+     text-align: left;
+     margin-bottom: 20px;
+}
+#advantages {
+    position: relative;
+    top: 30%;
+     color: white;
+     font-family: Inter;
+     font-size: 150px;
+     font-weight: 700;
+     line-height: normal;
+     text-align: left;
+     margin-top: 20px;
+}
 }

@@ -1,6 +1,7 @@
 body {
     /* overflow-x: hidden; Verhindert horizontales Scrollen
     overflow-y: auto;   Erlaubt vertikales Scrollen */
+    user-select: none;
 }
 
 
@@ -147,6 +148,8 @@ body {
     margin-left: auto;
     margin-right: auto;
     font-size: 2rem;
+}#answereOption0, #answereOption1, #answereOption2, #answereOption3:hover{
+    cursor: pointer;
 }
 
 #answereOption0, #answereOption1, #answereOption2, #answereOption3{

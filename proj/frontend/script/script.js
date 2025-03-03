@@ -17,55 +17,43 @@ let title = [
   ];
   
 
+let quizDataGlobal = []; 
 
-// Fetch data from the JSON file and use it also as Main
 function newQuiz(){
+    if (quizDataGlobal.length > 0) {
+        return Promise.resolve(quizDataGlobal); 
+    }
+    
     return fetch('../backend/data/questionAndAnswerEnglish.json')
-        .then(response => response.json())  // Parse the response as JSON
+        .then(response => response.json())
         .then(data => {
+            let numberOfQuestionsReturning = 10; 
+            let numberOfQuestionsInJson = data.quiz.length; 
 
-            // <---------- Variables ----------->
-            
-                //Variables to change
-                let numberOfQuestionsReturning = 10; //should not be longer than numberOfQuestionsInJson
-                let numberOfQuestionsInJson = data.quiz.length; //30 currently
+            const quizData = data.quiz;
+            let quizDataUsed = [];
+            let quizAllQuestions = [];
 
-                //Variables NOT to change
-                const quizData = data.quiz;
-                let quizDataUsed = [];
-                let quizAllQuestions = [];
-
-            // <---------- functions ----------->
-            
-                //getting a random number between 0 - 30 and each number can only be returned once
-                function getRandomNumber(){
-                    let randomNumber = Math.floor(Math.random() * numberOfQuestionsInJson);
-                    while(quizDataUsed.includes(randomNumber)){
-                        randomNumber = Math.floor(Math.random() * numberOfQuestionsInJson);
-                    }
-                    quizDataUsed.push(randomNumber);
-                    return randomNumber;
+            function getRandomNumber(){
+                let randomNumber = Math.floor(Math.random() * numberOfQuestionsInJson);
+                while(quizDataUsed.includes(randomNumber)){
+                    randomNumber = Math.floor(Math.random() * numberOfQuestionsInJson);
                 }
+                quizDataUsed.push(randomNumber);
+                return randomNumber;
+            }
 
-            // <---------- code ----------->
+            for(let i = 0; i < numberOfQuestionsReturning; i++){
+                quizAllQuestions.push(quizData[getRandomNumber()]);
+            }
 
-                //getting 10 (questions + options + anwsers) out of data and pushing them into the object "quizAllQuestions"
-                for(let i = 0; i < numberOfQuestionsReturning; i++){
-                    quizAllQuestions.push(quizData[getRandomNumber()]);
-                }
-
-                //returning "quizAllQuestions" | it contains 10 questions + options + answers
-                return quizAllQuestions
-
+            quizDataGlobal = quizAllQuestions;
+            return quizAllQuestions;
         })
         .catch(error => {
-        console.error("Error loading the JSON file:", error);
+            console.error("Error loading the JSON file:", error);
         });
-    }
-
-// Code snippet for Marc | data is a array with 10 questions
-
-
+}
 
 function quiz(){
     document.body.style.overflowX = "hidden";
@@ -76,44 +64,36 @@ function quiz(){
     document.getElementById('header').style.display="none";
     document.getElementById('indexButton').style.display="none";
 
-    
     document.getElementById('quizBox').style.display="block";
     document.getElementById('timerBox').style.display="block";
     document.getElementById('cirtlesPART2').style.display="block";
 
-    quizBuilder();
+    newQuiz().then(() => quizBuilder()); 
 }
-
-
-
-
-
-
 
 function quizBuilder(){
     document.getElementById('quizBox').style.display="block";
+    
     if(QuizCounter == 10){
         loadEnd();
+        return;
     }
 
     document.getElementById('wrapper').innerHTML=" ";
-    newQuiz().then(data => {
-        // console.log("Quiz Data:", data); // Logs the selected quiz data
-        
-        document.getElementById('wrapper').innerHTML+=`   
-            <div id="questionCount">Question ${QuizCounter+1}: </div>
+    
+    // Verwende das bereits geladene Quiz
+    let data = quizDataGlobal;
 
-            <div id="question">${data[QuizCounter].question}</div>
-            <div id="choosingAnswere">
-                <div id="answereOption0" onclick="check('${data[QuizCounter].options[0]}', '${data[QuizCounter].answer}', 0)"> <div id="A">A)</div> <p>${data[QuizCounter].options[0]}</p></div>
-                <div id="answereOption1" onclick="check('${data[QuizCounter].options[1]}', '${data[QuizCounter].answer}', 1)"> <div id="B">B)</div> <p>${data[QuizCounter].options[1]}</p></div>
-                <div id="answereOption2" onclick="check('${data[QuizCounter].options[2]}', '${data[QuizCounter].answer}', 2)"> <div id="C">C)</div> <p>${data[QuizCounter].options[2]}</p></div>
-                <div id="answereOption3" onclick="check('${data[QuizCounter].options[3]}', '${data[QuizCounter].answer}', 3)"> <div id="D">D)</div> <p>${data[QuizCounter].options[3]}</p></div>
-            </div>
-        
-        `;
-
-    }); 
+    document.getElementById('wrapper').innerHTML+=`   
+        <div id="questionCount">Question ${QuizCounter+1}: </div>
+        <div id="question">${data[QuizCounter].question}</div>
+        <div id="choosingAnswere">
+            <div id="answereOption0" onclick="check('${data[QuizCounter].options[0]}', '${data[QuizCounter].answer}', 0)"> <div id="A">A)</div> <p>${data[QuizCounter].options[0]}</p></div>
+            <div id="answereOption1" onclick="check('${data[QuizCounter].options[1]}', '${data[QuizCounter].answer}', 1)"> <div id="B">B)</div> <p>${data[QuizCounter].options[1]}</p></div>
+            <div id="answereOption2" onclick="check('${data[QuizCounter].options[2]}', '${data[QuizCounter].answer}', 2)"> <div id="C">C)</div> <p>${data[QuizCounter].options[2]}</p></div>
+            <div id="answereOption3" onclick="check('${data[QuizCounter].options[3]}', '${data[QuizCounter].answer}', 3)"> <div id="D">D)</div> <p>${data[QuizCounter].options[3]}</p></div>
+        </div>
+    `;
 }
 
 function check(id1, id2, id3){

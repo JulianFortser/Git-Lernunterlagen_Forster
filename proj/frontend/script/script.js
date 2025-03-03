@@ -146,6 +146,7 @@ function loadingResults(minutes, seconds){
     document.getElementById('wrapper').style.display="block";
     document.getElementById('wrapper').innerHTML+= `
         <div id="title">${gitTitle}</div>
+        <div id="rightQuestions">You got ${resultsRight} Questions Right</div>
         <div id="endTime">${minutes} min ${seconds} sec</div>
 
         <div id="buttonBackToQuiz" onclick="reloadQuiz()">back</div>

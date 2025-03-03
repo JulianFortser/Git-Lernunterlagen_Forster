@@ -1,57 +1,243 @@
 //Check if javaScript Works
 console.log("Js works");
+document.body.style.overflowX = "hidden";
+document.body.style.overflowY = "auto";
 
 
-// Fetch data from the JSON file and use it also as Main
+let QuizCounter = 0;
+let resultsRight = 0;
+
+let title = [
+    "Git-Newbie",
+    "Commit-Explorer",
+    "Branch-Begleiter",
+    "Merge-Maestro",
+    "Git-Guru",
+    "Version-Control-Virtuose"
+  ];
+  
+
+let quizDataGlobal = []; 
+
 function newQuiz(){
+    if (quizDataGlobal.length > 0) {
+        return Promise.resolve(quizDataGlobal); 
+    }
+    
     return fetch('../backend/data/questionAndAnswerEnglish.json')
-        .then(response => response.json())  // Parse the response as JSON
+        .then(response => response.json())
         .then(data => {
+            let numberOfQuestionsReturning = 10; 
+            let numberOfQuestionsInJson = data.quiz.length; 
 
-            // <---------- Variables ----------->
-            
-                //Variables to change
-                let numberOfQuestionsReturning = 10; //should not be longer than numberOfQuestionsInJson
-                let numberOfQuestionsInJson = data.quiz.length; //30 currently
+            const quizData = data.quiz;
+            let quizDataUsed = [];
+            let quizAllQuestions = [];
 
-                //Variables NOT to change
-                const quizData = data.quiz;
-                let quizDataUsed = [];
-                let quizAllQuestions = [];
-
-            // <---------- functions ----------->
-            
-                //getting a random number between 0 - 30 and each number can only be returned once
-                function getRandomNumber(){
-                    let randomNumber = Math.floor(Math.random() * numberOfQuestionsInJson);
-                    while(quizDataUsed.includes(randomNumber)){
-                        randomNumber = Math.floor(Math.random() * numberOfQuestionsInJson);
-                    }
-                    quizDataUsed.push(randomNumber);
-                    return randomNumber;
+            function getRandomNumber(){
+                let randomNumber = Math.floor(Math.random() * numberOfQuestionsInJson);
+                while(quizDataUsed.includes(randomNumber)){
+                    randomNumber = Math.floor(Math.random() * numberOfQuestionsInJson);
                 }
+                quizDataUsed.push(randomNumber);
+                return randomNumber;
+            }
 
-            // <---------- code ----------->
+            for(let i = 0; i < numberOfQuestionsReturning; i++){
+                quizAllQuestions.push(quizData[getRandomNumber()]);
+            }
 
-                //getting 10 (questions + options + anwsers) out of data and pushing them into the object "quizAllQuestions"
-                for(let i = 0; i < numberOfQuestionsReturning; i++){
-                    quizAllQuestions.push(quizData[getRandomNumber()]);
-                }
-
-                //returning "quizAllQuestions" | it contains 10 questions + options + answers
-                return quizAllQuestions
-
+            quizDataGlobal = quizAllQuestions;
+            return quizAllQuestions;
         })
         .catch(error => {
-        console.error("Error loading the JSON file:", error);
+            console.error("Error loading the JSON file:", error);
         });
+}
+
+function quiz(){
+    document.body.style.overflowX = "hidden";
+    document.body.style.overflowY = "hidden";
+
+    document.getElementById('cirtlesPART1').style.display="none";
+    document.getElementById('chooseAdvancedOrBasic').style.display="none";
+    document.getElementById('header').style.display="none";
+    document.getElementById('indexButton').style.display="none";
+
+    document.getElementById('quizBox').style.display="block";
+    document.getElementById('timerBox').style.display="block";
+    document.getElementById('cirtlesPART2').style.display="block";
+
+    newQuiz().then(() => quizBuilder()); 
+}
+
+function quizBuilder(){
+    document.getElementById('quizBox').style.display="block";
+    
+    if(QuizCounter == 10){
+        loadEnd();
+        return;
     }
 
-// Code snippet for Marc | data is a array with 10 questions
-newQuiz().then(data => {
-    console.log("Quiz Data:", data); // Logs the selected quiz data
+    document.getElementById('wrapper').innerHTML=" ";
+    
+    // Verwende das bereits geladene Quiz
+    let data = quizDataGlobal;
 
-});
+    document.getElementById('wrapper').innerHTML+=`   
+        <div id="questionCount">Question ${QuizCounter+1}: </div>
+        <div id="question">${data[QuizCounter].question}</div>
+        <div id="choosingAnswere">
+            <div id="answereOption0" onclick="check('${data[QuizCounter].options[0]}', '${data[QuizCounter].answer}', 0)"> <div id="A">A)</div> <p>${data[QuizCounter].options[0]}</p></div>
+            <div id="answereOption1" onclick="check('${data[QuizCounter].options[1]}', '${data[QuizCounter].answer}', 1)"> <div id="B">B)</div> <p>${data[QuizCounter].options[1]}</p></div>
+            <div id="answereOption2" onclick="check('${data[QuizCounter].options[2]}', '${data[QuizCounter].answer}', 2)"> <div id="C">C)</div> <p>${data[QuizCounter].options[2]}</p></div>
+            <div id="answereOption3" onclick="check('${data[QuizCounter].options[3]}', '${data[QuizCounter].answer}', 3)"> <div id="D">D)</div> <p>${data[QuizCounter].options[3]}</p></div>
+        </div>
+    `;
+}
+
+function check(id1, id2, id3){
+        if(id1 == id2){
+            document.getElementById('answereOption'+id3).style.backgroundColor="Green";
+            QuizCounter++;
+            resultsRight++;
+
+            setTimeout(() => {
+                quizBuilder();
+            }, 500); 
+            
+        }
+        else if (id1 != id2){
+            document.getElementById('answereOption'+id3).style.backgroundColor="Red";
+            QuizCounter++;
+
+            setTimeout(() => {
+                quizBuilder();
+            }, 500);
+        }
+}
+
+
+function loadingResults(minutes, seconds){
+    let gitTitle;
+
+    if (resultsRight == 10) {
+        gitTitle = title[5];  
+    } 
+    else if (resultsRight == 9) {
+        gitTitle = title[4];  
+    } 
+    else if (resultsRight == 8) {
+        gitTitle = title[3];  
+    } 
+    else if (resultsRight == 6 || resultsRight == 7) {
+        gitTitle = title[2];  
+    } 
+    else if (resultsRight == 4 || resultsRight == 5) {
+        gitTitle = title[1];  
+    }
+    else if (resultsRight >= 0 && resultsRight <= 3) {
+        gitTitle = title[0];  
+    }
+
+    document.querySelector('#loaderTXT').style.display="none";
+    document.querySelector('.loader').style.display="none";
+
+    document.getElementById('wrapper').style.display="block";
+    document.getElementById('wrapper').innerHTML+= `
+        <div id="title">${gitTitle}</div>
+        <div id="endTime">${minutes} min ${seconds} sec</div>
+
+        <div id="buttonBackToQuiz" onclick="reloadQuiz()">back</div>
+    `;
+}
+
+function reloadQuiz(){
+    window.location.href="./quiz.html";
+}
+
+
+
+let intervalId; 
+let stoppedTime = 0; 
+let currentTime = 0; 
+
+function startTimer(duration, display) {
+    let timer = duration, minutes, seconds;
+
+    // Setze den Intervall, damit er in `intervalId` gespeichert wird
+    intervalId = setInterval(function () {
+        currentTime = timer;  // Speichere die aktuelle Zeit in `currentTime`
+        
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            loadEnd();
+        }
+    }, 1000);
+}
+
+// Diese Methode stoppt den Timer und speichert die gestoppte Zeit
+function loadEnd() {
+    // Stoppe den Timer
+    clearInterval(intervalId);
+
+    // Speichere die gestoppte Zeit in der globalen Variable
+    stoppedTime = currentTime;
+
+    // Berechne die gestoppte Zeit in Minuten und Sekunden
+    let minutes = parseInt(stoppedTime / 60, 10);
+    let seconds = stoppedTime % 60;
+
+    // Zeige die gestoppte Zeit an (in der Konsole oder irgendwo anders)
+    console.log("Timer gestoppt: " + minutes + " Minuten und " + seconds + " Sekunden");
+
+    document.getElementById('wrapper').innerHTML=" ";
+    document.getElementById('timerBox').style.display="none";
+    document.querySelector('#loaderTXT').style.display="block";
+    document.querySelector('.loader').style.display="block";
+    
+    setTimeout(() => {
+        loadingResults(minutes, seconds);
+    }, 5000);
+}
+
+
+function stopTimer() {
+    clearInterval(intervalId);
+
+    
+    stoppedTime = currentTime;
+    
+    
+    let minutes = parseInt(stoppedTime / 60, 10);
+    let seconds = stoppedTime % 60;
+
+    console.log("Timer gestoppt: " + minutes + " Minuten und " + seconds + " Sekunden");
+}
+
+
+window.onload = function () {
+    var count = 180,
+        display = document.querySelector('#time');
+      
+    document.getElementById('Basic').addEventListener('click', function () { 
+        startTimer(count, display);
+    });    
+
+    document.getElementById('Advanced').addEventListener('click', function () { 
+        startTimer(count, display);
+    });
+
+};
+
+
 
 /*function generateIndividualSlideFrames(text) {
     const frames = [];
@@ -78,10 +264,10 @@ const frames = generateIndividualSlideFrames(text);
 console.log(frames);
 // 0c549648b9fd5516ed139fd46f8e6ec87cf29589
 
-
+*/
 function back(){
     window.location.href = "../frontend/index.html"
-}*/
+}
 
 
 const animationFrames = [

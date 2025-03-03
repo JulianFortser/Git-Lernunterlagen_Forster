@@ -1,7 +1,10 @@
 body {
-    overflow-x: hidden; /* Verhindert horizontales Scrollen */
-    overflow-y: auto;   /* Erlaubt vertikales Scrollen */
+    /* overflow-x: hidden; Verhindert horizontales Scrollen
+    overflow-y: auto;   Erlaubt vertikales Scrollen */
+    user-select: none;
 }
+
+
 
 #header{
     z-index: 5;
@@ -107,7 +110,158 @@ body {
     cursor: pointer;
 }
 
+#timerBox{
+    position: absolute;
+    z-index: 5;
+    top: 0%;
+    left: 85%;
+    color: #050315;
+    font-family: inter;
+    font-size: 4rem;
+    font-weight: bolder;
+}
 
+#title{
+    color: #050315;
+    z-index: 5;
+    position: relative;
+    font-size: 5rem;
+    font-weight: bolder;
+    margin-bottom: 2%;
+    text-align: center;
+    margin-top: 15%;
+}
+
+#endTime{
+    color: #050315;
+    z-index: 5;
+    position: relative;
+    font-size: 3rem;
+    font-weight: bolder;
+    text-align: center;
+}
+
+#buttonBackToQuiz{
+    z-index: 5;
+    padding: 1%;
+    background-color: #433BFF;
+    width: 25%;
+    border-radius: 20px;
+
+    margin-left: 75%;
+    margin-top: 15%;
+
+    color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 2rem;
+    font-style: Inter;
+    font-weight: 700;
+    line-height: normal;
+    cursor: pointer;
+}
+
+
+#quizBox{
+    display: none;
+    position: relative;
+    z-index: 5;
+    font-family: inter;
+}
+
+#wrapper{
+    position: relative;
+    z-index: 5;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#questionCount{
+    color: #050315;
+    z-index: 5;
+    position: relative;
+    font-size: 3rem;
+    font-weight: bolder;
+    margin-bottom: 3%;
+}
+#question{
+    margin-left: 10%;
+    font-size: 3rem;
+    color: #2F27CE;
+    font-weight: bold;
+}
+
+#choosingAnswere{
+    margin-top: 3%;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 2rem;
+}#answereOption0, #answereOption1, #answereOption2, #answereOption3:hover{
+    cursor: pointer;
+}
+
+#answereOption0, #answereOption1, #answereOption2, #answereOption3{
+    border-radius: 25px;
+    color: #050315;
+    background: #433BFF;
+    padding: 0%;
+    display: flex;
+    margin-top: 3%;
+     
+}
+#answereOption0 p, #answereOption1 p, #answereOption2 p, #answereOption3 p{
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 5%;
+}
+
+#A, #B, #C, #D{
+    margin-top: auto;
+    margin-bottom: auto;
+    width: auto;
+    height: auto;
+    background: #DEDCFF;
+    padding: 2%;
+}
+
+#loaderTXT{
+    color: #050315;
+    z-index: 5;
+    position: relative;
+    font-size: 3rem;
+    font-weight: bolder;
+    margin-bottom: 3%;
+    text-align: center;
+    margin-top: 15%;
+    margin-bottom: 2%;
+}
+
+.loader {
+    margin-left: auto;
+    margin-right: auto;
+    display: none;
+    z-index: 5;
+    width: 50%;
+    height: 22px;
+    border-radius: 20px;
+    color: black;
+    border: 2px solid;
+    position: relative;
+  }
+  .loader::before {
+    content: "";
+    position: absolute;
+    margin: 2px;
+    inset: 0 100% 0 0;
+    border-radius: inherit;
+    background: #433BFF;
+    animation: l6 5s infinite;
+  }
+  @keyframes l6 {
+      100% {inset:0}
+  }
 
 #circle1 {
     z-index: 0;
@@ -168,4 +322,94 @@ body {
     background: #7F7CB0;
     filter: blur(6.5vw);
 }
+
+#circle5 {
+    z-index: 0;
+    position: fixed;
+
+    bottom: -20%;
+    left: -15%;
+
+    width: 33.9vw;
+    height: 58.5vh;
+    flex-shrink: 0;
+
+    border-radius: 33.9vw;
+    background: #282566;
+    filter: blur(6.5vw);
+}
+#circle6 {
+    z-index: 0;
+    position: fixed;
+
+    bottom: -20%;
+    left: 80%;
+
+    width: 26.7vw;
+    height: 45vh;
+    flex-shrink: 0;
+
+    border-radius: 26.7vw;
+    background: #5B56B2;
+    filter: blur(6.5vw);
+}
+
+
+
+#cirtlesPART2{
+    display: none;
+}
+
+
+
+#circle7 {
+    z-index: 0;
+    position: fixed;
+
+    top: -45%;
+    left: 65%;
+
+    width: 49.5vw;
+    height: 84vh;
+    flex-shrink: 0;
+
+    border-radius: 49.5vw;
+    background: #443DFF;
+    filter: blur(6.5vw);
+}
+#circle8 {
+    z-index: 0;
+    position: fixed;
+
+    top: 70%;
+    left: -10%;
+
+    width: 33.9vw;
+    height: 58.5vh;
+    flex-shrink: 0;
+
+    border-radius: 33.9vw;
+    background: #282566;
+    filter: blur(6.5vw);
+}
+#circle9 {
+    z-index: 0;
+    position: fixed;
+
+    top: 80%;
+    left: 80%;
+
+    width: 26.7vw;
+    height: 45vh;
+    flex-shrink: 0;
+
+    border-radius: 26.7vw;
+    background: #5B56B2;
+    filter: blur(6.5vw);
+}
+
+
+
+
+/* HTML: <div class="loader"></div> */
 

@@ -88,9 +88,9 @@ function quizBuilder(){
         <div id="questionCount">Question ${QuizCounter+1}: </div>
         <div id="question">${data[QuizCounter].question}</div>
         <div id="choosingAnswere">
-            <div id="answereOption0" onclick="check('${data[QuizCounter].options[0]}', '${data[QuizCounter].answer}', 0)"> <div id="A">A)</div> <p>${data[QuizCounter].options[0]}</p></div>
+            <div id="answereOption0" onclick="check('${data[QuizCounter].options[0]}', '${data[QuizCounter].answer}', 0)"> <div id="A">A)</div> <p>${data[QuizCounter].options[2]}</p></div>
             <div id="answereOption1" onclick="check('${data[QuizCounter].options[1]}', '${data[QuizCounter].answer}', 1)"> <div id="B">B)</div> <p>${data[QuizCounter].options[1]}</p></div>
-            <div id="answereOption2" onclick="check('${data[QuizCounter].options[2]}', '${data[QuizCounter].answer}', 2)"> <div id="C">C)</div> <p>${data[QuizCounter].options[2]}</p></div>
+            <div id="answereOption2" onclick="check('${data[QuizCounter].options[2]}', '${data[QuizCounter].answer}', 2)"> <div id="C">C)</div> <p>${data[QuizCounter].options[0]}</p></div>
             <div id="answereOption3" onclick="check('${data[QuizCounter].options[3]}', '${data[QuizCounter].answer}', 3)"> <div id="D">D)</div> <p>${data[QuizCounter].options[3]}</p></div>
         </div>
     `;

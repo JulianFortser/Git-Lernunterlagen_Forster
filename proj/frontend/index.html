@@ -36,8 +36,7 @@
 
         <div id="textGit_layout">
             <p id="textGit">
-                Lorem ipsum dolor sit amet consectetur. Posuere ipsum elit adipiscing tellus. Dis tincidunt sociis ut nec hendrerit netus proin ac. Orci enim faucibus interdum vitae ullamcorper urna lorem. Posuere semper nulla mi aliquet aenean convallis eu.
-            </p>
+                Git ist ein verteiltes Versionskontrollsystem. Es speichert Änderungen von Dateien, ermöglicht Zusammenarbeit und sichert Codehistorie. Entwickler nutzen Branches, um Features zu testen. Durch Commits werden Änderungen festgehalten. Push überträgt sie ins Remote-Repository.            </p>
         </div>
 
         <div id="imgGit_layout">
@@ -306,15 +305,14 @@ sections.forEach((stop, index) => {
     }
 });
 
-
 const fifthSection = document.querySelector('#fifth_section');
 
 gsap.to(fifthSection, {
     backgroundColor: 'black',
     scrollTrigger: {
         trigger: fifthSection,
-        start: 'top center',
-        end: 'centerx center',
+        start: 'bottom bottom', // Start the animation later
+        end: 'center center',
         scrub: 1, // Reduced scrub value to make it faster
     }
 });

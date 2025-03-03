@@ -147,6 +147,7 @@ body {
   position: absolute;
   top: 35vh;
   scale: 0.8;
+  z-index: 10;
 }
 #second_section #textGit_layout {
   width: 542px;
@@ -195,6 +196,7 @@ body {
 }
 #second_section #ellipseTwoSmall_layout {
   position: relative;
+  z-index: 2;
   width: 644px;
   height: 615px;
   flex-shrink: 0;
@@ -210,6 +212,7 @@ body {
   height: 100%;
   position: absolute;
   left: -20vw;
+  z-index: 2;
 }
 #second_section #ellipseTwoBig_layout {
   width: 770px;
